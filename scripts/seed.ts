@@ -13,7 +13,8 @@ const seedEvents = [
     venue: "San Francisco Convention Center",
     date: new Date("2026-03-15"),
     capacity: 500,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 2999
   },
   {
     title: "AI & Machine Learning Conference",
@@ -24,7 +25,8 @@ const seedEvents = [
     venue: "Seattle Tech Hub",
     date: new Date("2026-04-22"),
     capacity: 300,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 3499
   },
   {
     title: "Web Development Bootcamp",
@@ -35,7 +37,8 @@ const seedEvents = [
     venue: "Austin Innovation Center",
     date: new Date("2026-05-10"),
     capacity: 150,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 1999
   },
   {
     title: "Startup Pitch Night",
@@ -46,7 +49,8 @@ const seedEvents = [
     venue: "New York Startup Hub",
     date: new Date("2026-06-05"),
     capacity: 200,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 499
   },
   {
     title: "Cloud Computing Workshop",
@@ -57,7 +61,8 @@ const seedEvents = [
     venue: "Boston Tech Campus",
     date: new Date("2026-07-18"),
     capacity: 100,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 1499
   },
   {
     title: "Cybersecurity Summit",
@@ -68,7 +73,8 @@ const seedEvents = [
     venue: "Chicago Security Center",
     date: new Date("2026-08-12"),
     capacity: 250,
-    bookedSeats: 0
+    bookedSeats: 0,
+    price: 2499
   }
 ];
 

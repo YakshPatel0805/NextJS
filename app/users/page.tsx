@@ -11,6 +11,9 @@ interface Booking {
   numberOfSeats: number;
   bookingDate: string;
   status: string;
+  paymentStatus: 'pending' | 'completed' | 'failed';
+  paymentAmount: number;
+  transactionId?: string;
   eventId: {
     _id: string;
     title: string;
@@ -120,8 +123,25 @@ const UserBookingsPage = () => {
                   <div className="md:col-span-2 space-y-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{booking.eventId.title}</h3>
-                      <div className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
-                        ✓ {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                      <div className="flex gap-2 flex-wrap">
+                        <div className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                          ✓ {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                        </div>
+                        {booking.paymentStatus === 'completed' && (
+                          <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+                            💳 Payment Successful
+                          </div>
+                        )}
+                        {booking.paymentStatus === 'pending' && (
+                          <div className="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold">
+                            ⏳ Payment Pending
+                          </div>
+                        )}
+                        {booking.paymentStatus === 'failed' && (
+                          <div className="inline-block px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
+                            ❌ Payment Failed
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -159,6 +179,18 @@ const UserBookingsPage = () => {
                           <p className="text-sm text-gray-600">Number of Seats</p>
                           <p className="font-semibold text-gray-900">{booking.numberOfSeats}</p>
                         </div>
+
+                        <div className="bg-green-50 rounded-lg p-3">
+                          <p className="text-sm text-gray-600">Total Amount</p>
+                          <p className="font-semibold text-gray-900">₹{booking.paymentAmount.toFixed(2)}</p>
+                        </div>
+
+                        {booking.transactionId && (
+                          <div className="bg-indigo-50 rounded-lg p-3">
+                            <p className="text-sm text-gray-600">Transaction ID</p>
+                            <p className="font-semibold text-gray-900 text-xs">{booking.transactionId}</p>
+                          </div>
+                        )}
 
                         <div className="bg-gray-50 rounded-lg p-3">
                           <p className="text-sm text-gray-600">Booked On</p>

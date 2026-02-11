@@ -36,11 +36,25 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    const booking = await Booking.create(body);
+    // Calculate payment amount
+    const paymentAmount = event.price * body.numberOfSeats;
+    
+    const booking = await Booking.create({
+      ...body,
+      paymentAmount,
+      paymentStatus: 'pending'
+    });
+    
     event.bookedSeats += body.numberOfSeats;
     await event.save();
     
-    return NextResponse.json({ success: true, data: booking }, { status: 201 });
+    return NextResponse.json({ 
+      success: true, 
+      data: {
+        ...booking.toObject(),
+        eventPrice: event.price
+      }
+    }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { success: false, error: 'Failed to create booking' },

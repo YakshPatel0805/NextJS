@@ -10,6 +10,7 @@ export interface IEvent {
   date: Date;
   capacity: number;
   bookedSeats: number;
+  price: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -24,7 +25,8 @@ const EventSchema = new Schema<IEvent>(
     venue: { type: String, required: true },
     date: { type: Date, required: true },
     capacity: { type: Number, required: true, default: 100 },
-    bookedSeats: { type: Number, default: 0 }
+    bookedSeats: { type: Number, default: 0 },
+    price: { type: Number, required: true, default: 0 }
   },
   { timestamps: true }
 );

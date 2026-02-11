@@ -117,7 +117,11 @@ const EventDetailPage = async ({ params }: Props) => {
             </div>
 
             {availableSeats > 0 ? (
-              <BookingForm eventId={event._id.toString()} availableSeats={availableSeats} />
+              <BookingForm 
+                eventId={event._id.toString()} 
+                availableSeats={availableSeats}
+                eventPrice={event.price}
+              />
             ) : (
               <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 text-center">
                 <p className="text-red-700 font-bold text-lg">⚠️ This event is fully booked</p>
