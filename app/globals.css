@@ -130,9 +130,112 @@
   ul {
     @apply list-none;
   }
+
+  /* Custom Scrollbar Styles */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
 }
 
 @layer components {
+  /* Form Styles */
+  .form-container {
+    @apply bg-white rounded-xl shadow-lg border-2 border-gray-200 p-8;
+  }
+
+  .form-title {
+    @apply text-3xl font-bold text-gray-900 mb-6;
+  }
+
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply block text-base font-semibold text-gray-900 mb-2;
+  }
+
+  .form-label-required::after {
+    content: " *";
+    @apply text-red-500;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+           outline-none transition bg-white text-gray-900 
+           placeholder:text-gray-400;
+  }
+
+  .form-input:disabled,
+  .form-input:read-only {
+    @apply bg-gray-50 cursor-not-allowed text-gray-600;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+           outline-none transition bg-white text-gray-900 
+           placeholder:text-gray-400 resize-none;
+  }
+
+  .form-helper-text {
+    @apply text-sm text-gray-600 mt-1;
+  }
+
+  .form-error {
+    @apply bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-6;
+  }
+
+  .form-error-text {
+    @apply text-red-700 font-semibold text-sm;
+  }
+
+  .form-success {
+    @apply bg-green-50 border-2 border-green-200 rounded-lg p-6;
+  }
+
+  .form-success-title {
+    @apply text-green-800 font-semibold text-lg mb-2;
+  }
+
+  .form-success-text {
+    @apply text-green-700;
+  }
+
+  .form-button {
+    @apply w-full bg-blue-600 text-white py-3 px-6 rounded-lg 
+           font-bold text-lg hover:bg-blue-700 
+           disabled:bg-gray-400 disabled:cursor-not-allowed 
+           transition shadow-lg hover:shadow-xl 
+           transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .form-button-secondary {
+    @apply w-full bg-gray-600 text-white py-3 px-6 rounded-lg 
+           font-bold text-lg hover:bg-gray-700 
+           disabled:bg-gray-400 disabled:cursor-not-allowed 
+           transition shadow-lg hover:shadow-xl;
+  }
+
+  .form-grid-2 {
+    @apply grid md:grid-cols-2 gap-6;
+  }
+
   #home {
     .subheading {
       @apply text-light-100 text-lg max-sm:text-sm text-center mt-5;

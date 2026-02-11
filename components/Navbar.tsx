@@ -12,8 +12,7 @@ const Navbar = () => {
 
                 <ul>
                     <Link href="/">Home</Link>
-                    <Link href="/">Events</Link>
-                    <Link href="/">Create Event</Link>
+                    <Link href="/users">My Bookings</Link>
                 </ul>
             </nav>
         </header>
